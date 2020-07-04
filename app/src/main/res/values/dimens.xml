@@ -11,5 +11,6 @@
     <dimen name="welcome_image_height_width">300dp</dimen>
     <dimen name="zero_dp">0dp</dimen>
     <dimen name="image_height_width">150dp</dimen>
+    <dimen name="error_text_size">25sp</dimen>
     <integer name="column_size">2</integer>
 </resources>
