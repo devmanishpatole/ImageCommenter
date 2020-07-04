@@ -64,7 +64,7 @@ class ImagesViewModel(
                 .flatMapLatest { query -> fetchImages(query) }
                 .catch {
                     _state.value = ImageDataState.HideProgress
-                    _state.value = ImageDataState.NoInternet
+                    _state.value = ImageDataState.UnknownError
                 }
                 .collect { result ->
                     handleResult(result)
