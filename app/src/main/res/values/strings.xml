@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">ImageCommenter</string>
+    <string name="loading">Loading…</string>
+    <string name="no_internet">No Internet Connectivity</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="search">Search</string>
+    <string name="no_result_found">No result found</string>
+    <string name="enter_comment">Enter comment</string>
+    <string name="submit">Submit</string>
+    <string name="enter_comment_error">Please enter comment</string>
+    <string name="old_comment">Old comment : </string>
+</resources>

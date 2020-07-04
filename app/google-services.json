@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1047332897368",
+    "firebase_url": "https://imagecommenter-c800f.firebaseio.com",
+    "project_id": "imagecommenter-c800f",
+    "storage_bucket": "imagecommenter-c800f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1047332897368:android:93f506e2ce2c6c87fc402d",
+        "android_client_info": {
+          "package_name": "com.devmanishpatole.imagecommenter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1047332897368-um8lg1f7rslh3a6ib4f1qp0if26jij2r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGhk-nGL8MOTt0VzImWrSMYC50NivKjDw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1047332897368-um8lg1f7rslh3a6ib4f1qp0if26jij2r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

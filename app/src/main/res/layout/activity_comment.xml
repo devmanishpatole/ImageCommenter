@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/MatchParentLayout">
+
+    <LinearLayout
+        style="@style/MatchParentPadded"
+        android:orientation="vertical"
+        tools:context=".ui.CommentActivity">
+
+        <ImageView
+            android:id="@+id/imageView"
+            style="@style/SectionLayout"
+            android:src="@drawable/common_full_open_on_phone"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/oldComment"
+            style="@style/wrapContentLayout"
+            android:text="@string/old_comment"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <EditText
+            android:id="@+id/editComment"
+            style="@style/SectionLayout"
+            android:hint="@string/enter_comment"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLines="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageView" />
+
+        <Button
+            android:id="@+id/submitComment"
+            style="@style/SectionLayout"
+            android:text="@string/submit" />
+
+    </LinearLayout>
+</ScrollView>
