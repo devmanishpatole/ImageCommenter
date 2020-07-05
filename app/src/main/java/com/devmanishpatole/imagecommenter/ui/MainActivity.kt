@@ -78,21 +78,18 @@ class MainActivity : BaseActivity<ImagesViewModel>() {
         progressbar.hide()
         imageList.hide()
         showError(getString(R.string.no_result_found))
-        showMessage(R.string.no_result_found)
     }
 
     private fun handleNoInternet() {
         progressbar.hide()
         imageList.hide()
         showError(getString(R.string.no_internet))
-        showMessage(R.string.no_internet)
     }
 
     private fun handleUnknownError() {
         progressbar.hide()
         imageList.hide()
         showError(getString(R.string.something_went_wrong))
-        showMessage(R.string.something_went_wrong)
     }
 
     private fun showError(error: String) {
