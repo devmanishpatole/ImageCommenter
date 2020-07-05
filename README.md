@@ -1,4 +1,4 @@
-![photo](https://bitbucket.org/ManishPatole/imagecommenter/src/master/media/ImageCommenter.png)
+![photo](media/ImageCommenter.png)
 
 # Image Commenter 
 
