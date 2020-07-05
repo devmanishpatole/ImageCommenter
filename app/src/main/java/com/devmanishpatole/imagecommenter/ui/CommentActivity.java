@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.lifecycle.ViewModelProvider;
+
 import com.devmanishpatole.imagecommenter.R;
 import com.devmanishpatole.imagecommenter.base.BaseActivity;
 import com.devmanishpatole.imagecommenter.imgur.data.ImageData;
@@ -20,8 +22,6 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
 
-import javax.inject.Inject;
-
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
@@ -29,20 +29,17 @@ public class CommentActivity extends BaseActivity<CommentViewModel> {
 
     public static final String PARCEL_IMAGE = "PARCEL_IMAGE";
 
-    @Inject
-    CommentViewModel viewModel;
+    private CommentViewModel viewModel;
 
     private ImageData imageData;
 
     @NotNull
     @Override
     public CommentViewModel getViewModel() {
+        if(null == viewModel){
+            viewModel = new ViewModelProvider(this).get(CommentViewModel.class);
+        }
         return viewModel;
-    }
-
-    @Override
-    public void setViewModel(@NotNull CommentViewModel viewModel) {
-        //No Implementation
     }
 
     @Override

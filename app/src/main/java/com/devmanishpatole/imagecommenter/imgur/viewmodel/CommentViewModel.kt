@@ -1,5 +1,6 @@
 package com.devmanishpatole.imagecommenter.imgur.viewmodel
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -9,7 +10,10 @@ import com.devmanishpatole.imagecommenter.imgur.repository.CommentRepository
 import com.devmanishpatole.imagecommenter.util.NetworkHelper
 import kotlinx.coroutines.launch
 
-class CommentViewModel(networkHelper: NetworkHelper, private val repository: CommentRepository) :
+class CommentViewModel @ViewModelInject constructor(
+    networkHelper: NetworkHelper,
+    private val repository: CommentRepository
+) :
     BaseViewModel(networkHelper) {
 
     private val _commentData = MutableLiveData<Comment>()

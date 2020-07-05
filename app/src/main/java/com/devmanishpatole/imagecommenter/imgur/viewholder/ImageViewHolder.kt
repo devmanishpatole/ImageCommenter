@@ -53,7 +53,7 @@ class ImageViewHolder(parent: ViewGroup, private val onItemClick: (Int) -> Unit)
 
     override fun injectDependency() {
         lifecycleRegistry = LifecycleRegistry(this)
-        viewModel = getViewModel(itemView.context as androidx.appcompat.app.AppCompatActivity)
+        viewModel = getViewModel(itemView.context as AppCompatActivity)
     }
 
 }

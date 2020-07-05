@@ -2,6 +2,7 @@ package com.devmanishpatole.imagecommenter.ui
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.devmanishpatole.imagecommenter.R
@@ -25,8 +26,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class MainActivity : BaseActivity<ImagesViewModel>() {
 
-    @Inject
-    override lateinit var viewModel: ImagesViewModel
+    override val viewModel: ImagesViewModel by viewModels()
 
     @Inject
     lateinit var adapter: ImageListAdapter
@@ -61,7 +61,7 @@ class MainActivity : BaseActivity<ImagesViewModel>() {
         })
     }
 
-    private fun handleSuccess(list : List<ImageData>){
+    private fun handleSuccess(list: List<ImageData>) {
         adapter.replaceData(ArrayList(list))
         imageList.scrollToPosition(0)
         hideKeyboard()
