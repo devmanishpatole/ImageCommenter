@@ -13,7 +13,13 @@ import com.devmanishpatole.imagecommenter.util.hide
 import com.devmanishpatole.imagecommenter.util.show
 import kotlinx.android.synthetic.main.base_layout.*
 
-
+/**
+ * Base Activity for all activity.
+ *
+ * Handles common operations.
+ * Observes message live data from base view model to display toast messages.
+ *
+ */
 abstract class BaseActivity<T : BaseViewModel> : AppCompatActivity() {
 
     abstract var viewModel: T
@@ -27,6 +33,9 @@ abstract class BaseActivity<T : BaseViewModel> : AppCompatActivity() {
         setupView(savedInstanceState)
     }
 
+    /**
+     * Observes the message changes from base view model.
+     */
     private fun initObserver() {
         viewModel.messageString.observe(this, Observer {
             it.data?.run { showMessage(this) }
@@ -37,18 +46,29 @@ abstract class BaseActivity<T : BaseViewModel> : AppCompatActivity() {
         })
     }
 
+    /**
+     * Shows the fill screen progress.
+     */
     protected fun showProgressbar() {
         mainViewContainer.hide()
         progressText.hide()
         progressbar.show()
     }
 
+    /**
+     * Hides the progress.
+     */
     protected fun hideProgressbar() {
         mainViewContainer.show()
         progressText.hide()
         progressbar.hide()
     }
 
+    /**
+     * Shows the fill screen progress.
+     *
+     * @param text - display over progress
+     */
     protected fun showProgressbarWithText(text: String) {
         progressText.text = text
         mainViewContainer.hide()
