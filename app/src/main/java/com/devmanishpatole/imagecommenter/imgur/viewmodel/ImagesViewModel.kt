@@ -1,5 +1,6 @@
 package com.devmanishpatole.imagecommenter.imgur.viewmodel
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -17,7 +18,7 @@ import kotlinx.coroutines.launch
 
 @FlowPreview
 @ExperimentalCoroutinesApi
-class ImagesViewModel(
+class ImagesViewModel @ViewModelInject constructor(
     networkHelper: NetworkHelper,
     private val imagesRepository: ImagesRepository
 ) : BaseViewModel(networkHelper) {

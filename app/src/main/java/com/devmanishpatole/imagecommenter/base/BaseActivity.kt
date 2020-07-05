@@ -22,7 +22,7 @@ import kotlinx.android.synthetic.main.base_layout.*
  */
 abstract class BaseActivity<T : BaseViewModel> : AppCompatActivity() {
 
-    abstract var viewModel: T
+    abstract val viewModel: T
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
