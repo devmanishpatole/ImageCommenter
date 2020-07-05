@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.devmanishpatole.imagecommenter.R;
 import com.devmanishpatole.imagecommenter.base.BaseActivity;
+import com.devmanishpatole.imagecommenter.imgur.data.Image;
 import com.devmanishpatole.imagecommenter.imgur.data.ImageData;
 import com.devmanishpatole.imagecommenter.imgur.viewmodel.CommentViewModel;
 import com.squareup.picasso.Picasso;
@@ -20,6 +21,7 @@ import com.squareup.picasso.Picasso;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.Objects;
 
 import dagger.hilt.android.AndroidEntryPoint;
@@ -36,7 +38,7 @@ public class CommentActivity extends BaseActivity<CommentViewModel> {
     @NotNull
     @Override
     public CommentViewModel getViewModel() {
-        if(null == viewModel){
+        if (null == viewModel) {
             viewModel = new ViewModelProvider(this).get(CommentViewModel.class);
         }
         return viewModel;
@@ -76,9 +78,15 @@ public class CommentActivity extends BaseActivity<CommentViewModel> {
     private void setupImage() {
         if (null != imageData) {
             ImageView imageView = findViewById(R.id.imageView);
-            Picasso.get().load(imageData.getLink()).error(R.drawable.placeholder)
-                    .placeholder(R.drawable.placeholder)
-                    .into(imageView);
+            List<Image> images = imageData.getImages();
+
+            if (null != images && !images.isEmpty()) {
+                Picasso.get().load(images.get(0).getImageLink()).error(R.drawable.placeholder)
+                        .placeholder(R.drawable.placeholder)
+                        .into(imageView);
+            } else {
+                Picasso.get().load(R.drawable.placeholder).into(imageView);
+            }
 
             viewModel.getComment(imageData.getId());
         }

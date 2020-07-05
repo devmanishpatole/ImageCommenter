@@ -27,9 +27,13 @@ class ImageViewHolder(parent: ViewGroup, private val onItemClick: (Int) -> Unit)
     }
 
     override fun bind(data: ImageData) {
-        Picasso.get().load(data.link).error(R.drawable.placeholder)
-            .placeholder(R.drawable.placeholder).fit()
-            .into(itemView.imageView)
+        val image = data.images?.firstOrNull()
+        image?.let {
+            Picasso.get().load(it.imageLink).error(R.drawable.placeholder)
+                .placeholder(R.drawable.placeholder).fit()
+                .into(itemView.imageView)
+        } ?: Picasso.get().load(R.drawable.placeholder).fit().into(itemView.imageView)
+
         itemView.imageTitle.text = data.title
 
         itemView.setOnClickListener {
