@@ -9,20 +9,23 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
+import dagger.hilt.android.components.ApplicationComponent
 import dagger.hilt.android.qualifiers.ApplicationContext
 import okhttp3.Interceptor
 import okhttp3.Response
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import javax.inject.Singleton
 
 @Module
-@InstallIn(ActivityComponent::class)
+@InstallIn(ApplicationComponent::class)
 object NetworkModule {
 
     private const val AUTHORIZATION = "Authorization"
     private const val AUTHORIZATION_VALUE = "Client-ID 137cda6b5008a7c"
 
     @Provides
+    @Singleton
     fun provideAuthenticatorInterceptor() = object : Interceptor {
         override fun intercept(chain: Interceptor.Chain): Response {
             val original = chain.request()
@@ -37,6 +40,7 @@ object NetworkModule {
     }
 
     @Provides
+    @Singleton
     fun provideLoggingInterceptor() = HttpLoggingInterceptor()
         .apply {
             level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY
@@ -44,6 +48,7 @@ object NetworkModule {
         }
 
     @Provides
+    @Singleton
     fun provideNetwork(
         @ApplicationContext appContext: Context,
         loggingInterceptor: HttpLoggingInterceptor,
@@ -58,9 +63,11 @@ object NetworkModule {
         )
 
     @Provides
+    @Singleton
     fun provideNetworkHelper(@ApplicationContext appContext: Context) = NetworkHelper(appContext)
 
     @Provides
+    @Singleton
     fun provideImgurService(retrofit: Retrofit): ImgurService =
         retrofit.create(ImgurService::class.java)
 
